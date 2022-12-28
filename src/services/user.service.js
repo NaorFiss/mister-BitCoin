@@ -41,6 +41,10 @@ async function getUser() {
     return Promise.resolve(gUser)
 }
 
+async function getUserMoves() {
+    return gUser.moves
+}
+
 function addMove(contact, amount) {
     const move = {
         toId: contact._id,

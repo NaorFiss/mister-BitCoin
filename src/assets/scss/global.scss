@@ -22,6 +22,8 @@
 @import "./cmps/contact-preview";
 @import "./cmps/contact-filter";
 @import "./cmps/app-header";
+@import "./cmps/transferFund";
+
 
 
 
@@ -35,7 +37,7 @@
     display: flex;
     flex-direction: column;
     .app-header {
-        background-color: #e91e63;
+        background: #7bea8b;
     }
 
     main {

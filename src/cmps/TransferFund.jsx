@@ -31,15 +31,14 @@ export class TransferFund extends Component {
 
     render() {
         const { maxCoins, contact } = this.state
-        console.log("maxCoins", maxCoins)
-        console.log("contact", contact)
         return (
+           
             <form className='transferFund' onSubmit={this.onTransferCoins}>
-
-                <label htmlFor="amount">Amount:</label>
-                <input ref={this.handleRef} onChange={this.handleChange} value={this.state.amount} type="number" name="amount" id="amount" />
+                 <p className="transfer-title"> Transfer coins to: {contact.name}</p>
+                <label htmlFor="amount"></label>
+                <input className="transfer-form" ref={this.handleRef} onChange={this.handleChange}  value={this.state.amount} type="number" name="amount" placeholder="amount" id="amount" />
                 <button>Transfer</button>
-                <p>left coins: {maxCoins}</p>
+                <p className="transfer-balance"> BTC Balance: {maxCoins}</p>
             </form>
 
         )

@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { TransferFund } from '../cmps/TransferFund.jsx'
+import { MoveList } from '../cmps/MoveList.jsx'
 import { contactService } from '../services/contact.service.js'
 import { userService } from '../services/user.service.js'
 
@@ -36,6 +37,13 @@ export class ContactDetails extends Component {
         this.props.history.push('/contact')
     }
 
+    get movesToContact() {
+        let moves = userService.getUserMoves().filter(
+            (move) => move.toId === this.state.contact._id
+        )
+        return moves
+    }
+
     render() {
         const { contact, user } = this.state
         console.log("contact", contact)
@@ -44,19 +52,20 @@ export class ContactDetails extends Component {
         if (!contact || !user) return <div>Loading...</div>
         return (
             <section className='contact-details flex space-between'>
-                <section className='flex'>
-                
                 <section className="details-container">
                     <h1>Name: {contact.name}</h1>
                     <h4>eMail: {contact.email}</h4>
                     <h4>Phone: {contact.phone}</h4>
                     <img src={`https://robohash.org/set_set4/${contact._id}`} alt="" />
                 </section>
-                
-                </section>
-            <section>
+                <section>
                 <TransferFund contact={contact} maxCoins={user.coins} />
-            </section>
+                {/* {!!this.movesToContact.length  && (
+                        <MovesList
+                            moves={this.movesToContact}
+                        />
+                    )} */}
+                </section>
             </section>
 
         )
