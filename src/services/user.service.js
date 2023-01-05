@@ -1,4 +1,6 @@
-import { storageService } from '../services/storage.service.js'
+import {
+    storageService
+} from '../services/storage.service.js'
 
 export const userService = {
     getUser,
@@ -11,14 +13,12 @@ export const userService = {
 var gUser = storageService.load('User_KEY', gUser) ?
     storageService.load('User_KEY', gUser) : null
 
-const users = [
-    {
-        "_id": "5a56640269f443a5d64b32ca",
-        "name": "Puki Ben-David",
-        "coins": 100,
-        "moves": []
-    }
-]
+const users = [{
+    "_id": "5a56640269f443a5d64b32ca",
+    "name": "Puki Ben-David",
+    "coins": 100,
+    "moves": []
+}]
 
 
 
@@ -33,6 +33,7 @@ function signup(name) {
 
 
 }
+
 function isUser() {
     return gUser ? true : false
 }

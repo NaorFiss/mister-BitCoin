@@ -8,7 +8,7 @@ export class ContactDetails extends Component {
 
     state = {
         contact: null,
-        user: null
+                    user: null
     }
 
     componentDidMount() {
